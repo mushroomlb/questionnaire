@@ -5,13 +5,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/questionnaire');
+mongoose.connect('mongodb://10.138.114.108:31321/questionnaire');
 
 app.use(session({
     secret: 'questionnaire',
     cookie: {maxAge: 1000 * 60 * 60 * 3},
     store: new MongoStore({
-        url: 'mongodb://localhost/questionnaire',
+        url: 'mongodb://10.138.114.108:31321/questionnaire',
         collection: 'sessions'
     }),
     resave: true,
